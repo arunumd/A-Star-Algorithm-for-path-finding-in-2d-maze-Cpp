@@ -50,8 +50,8 @@ bool Maze::IsTarget(int x, int y, char target_char)
 
 
 void Maze::SetStartGoal(int start_x, int start_y, int goal_x, int goal_y){
-    start_=std::make_pair(start_x, start_y);
-    goal_=std::make_pair(goal_x, goal_y);
+    start_=std::make_pair(start_y, start_x);
+    goal_=std::make_pair(goal_y, goal_x);
 }
 
 
@@ -77,6 +77,13 @@ void Maze::ShowMaze()
     std::cout << std::endl;
 }
 
+
+
+void Maze::ShowStartGoal(){
+    std::cout<<"start:"<<start_.first<<"  "<<start_.second<<std::endl;
+    std::cout<<"goal:"<<goal_.first<<"  "<< goal_.second<<std::endl;
+    
+}
 
 // Classes Target and Maze End
 
@@ -146,6 +153,7 @@ std::pair<int, int> Maze::South(const std::pair<int, int> node) const {
 }
 
 const double Maze::CalculateDistance(std::pair<int, int> current_node) const {
+    std::cout<<goal_.first<<"   "<<goal_.second;
     return std::sqrt(std::pow(current_node.first - goal_.first, 2) + \
                      std::pow(current_node.second - goal_.second, 2));
 }
@@ -156,7 +164,7 @@ bool Maze::IsNotObstacle(std::pair<int, int> node) const {
 }
 
 bool Maze::IsWithinRegion(std::pair<int, int> node) const {
-    if (node.first >= 0 && node.first <= 5 && node.second >= 0 && node.second <= 5) return true;
+    if (node.first >= 0 && node.first <= 30 && node.second >= 0 && node.second <= 45) return true;
     else return false;
 }
 
@@ -448,4 +456,6 @@ void Target::GoWheeled(){
     }
     tempMaze.Action();
     tempMaze.PlotTrajectory();
+    tempMaze.ShowStartGoal();
+    tempMaze.ShowMaze();
 }

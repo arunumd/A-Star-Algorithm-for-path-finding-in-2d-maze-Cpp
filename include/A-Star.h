@@ -92,6 +92,7 @@ public:
     const int width = 31;
     const int length = 46;
     void ShowMaze();
+    void ShowStartGoal();
     bool IsTarget(int x, int y, char target_char);
     char GetMazePosition(int x, int y);
     void ModifyMazePosition(int x, int y, char c);
