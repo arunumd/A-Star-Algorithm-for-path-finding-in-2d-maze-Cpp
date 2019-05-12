@@ -1,16 +1,10 @@
 #include <iostream>
-#include "./include/A-Star.h"
-#include "./include/Target.h"
+#include "../include/A-Star.h"
+#include "../include/Target.h"
 #include <stack>
-#include "./include/MobileRobot_FSM.h"
+#include "../include/MobileRobot_FSM.h"
 
 int main() {
-//    Maze game;
-//    game.Scan();
-//    game.Action();
-//    game.PlotTrajectory();
-    
-    
     Target missions;
     missions.SetPositions();
     missions.AssignTasks();

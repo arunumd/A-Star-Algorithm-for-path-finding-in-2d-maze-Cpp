@@ -10,12 +10,9 @@
 #include <array>
 #include <map>
 #include <stack>
-#include "./include/MobileRobot_FSM.h"
-
-
+#include "../include/MobileRobot_FSM.h"
 
 struct ListInfo {
-    int node_no = -10, parent_no = -10;
     double cost_g = 0;
     double cost_h = -10;
     double total_cost = -10;
@@ -59,32 +56,24 @@ public:
              start_{std::make_pair(-1, -1)}, goal_{std::make_pair(-1, -1)} {}
 
     ~Maze() = default;
-    
-    
-    
-    
-    
+
     // Added methods start
     bool CanMove(int x, int y);
+
     int width = 31;
     int length = 46;
+
     void ShowMaze();
-    void ShowStartGoal();
-    bool IsTarget(int x, int y, char target_char);
+
     char GetMazePosition(int x, int y);
+
     void ModifyMazePosition(int x, int y, char c);
+
     void SetStartGoal(int start_x, int start_y, int goal_x, int goal_y);
-    void BuildWheeledStack(WheeledRobot* &robot_in_maze);
-    void BuildTrackedStack(TrackedRobot* &robot_in_maze);
-    void BuildStack(MobileRobot* &robot_in_maze);
+
+    void BuildStack(MobileRobot *&robot_in_maze);
 
     // Added methods end
-
-
-
-
-
-    void Spawn(std::array<std::string, 31> board) const;
 
     // Four functions to make four moves
 
@@ -111,17 +100,13 @@ public:
     bool IsWithinRegion(std::pair<int, int> node) const;
 
     void PlotTrajectory(char path_icon);
-    
+
     std::array<std::string, 31> grid_;
-    
+
 private:
-    
     std::pair<int, int> start_, goal_;
     std::multimap<double, ListInfo> priority_list_;
     std::map<std::pair<int, int>, ListInfo> open_list_, closed_list_;
 };
-
-
-
 
 #endif //ENPM809Y_PROJECT_5_A_STAR_H

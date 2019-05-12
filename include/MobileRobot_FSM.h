@@ -5,120 +5,102 @@
 #include <stack>
 #include <string>
 
-class RobotState
-{
+class RobotState {
 public:
-    virtual void HandleInput(std::stack<RobotState*>&, std::string)
-    {
+    virtual void HandleInput(std::stack<RobotState *> &, std::string) {
     }
+
     RobotState(std::string name = "RobotState")
-        : name_{ name }
-    {
+            : name_{name} {
     }
+
     virtual ~RobotState() = default;
 
-    std::string get_name()
-    {
+    std::string get_name() {
         return name_;
     }
-    void show_state()
-    {
-        std::cout << name_ << std::endl;
-        return;
-    }
 
-    void set_name(std::string name)
-    {
-        name_ = name;
-    }
     std::string name_;
 };
 
-class UpState : public RobotState
-{
+class UpState : public RobotState {
 public:
     UpState()
-        : RobotState("Up")
-    {
+            : RobotState("Up") {
     }
-    void HandleInput(std::stack<RobotState*>&, std::string) override;
-    ~UpState()
-    {
+
+    void HandleInput(std::stack<RobotState *> &, std::string) override;
+
+    ~UpState() {
     }
 };
 
-class DownState : public RobotState
-{
+class DownState : public RobotState {
 public:
     DownState()
-        : RobotState("Down")
-    {
+            : RobotState("Down") {
     }
-    void HandleInput(std::stack<RobotState*>&, std::string) override;
-    ~DownState()
-    {
+
+    void HandleInput(std::stack<RobotState *> &, std::string) override;
+
+    ~DownState() {
     }
 };
 
-class LeftState : public RobotState
-{
+class LeftState : public RobotState {
 public:
     LeftState()
-        : RobotState("Left")
-    {
+            : RobotState("Left") {
     }
-    void HandleInput(std::stack<RobotState*>&, std::string) override;
-    ~LeftState()
-    {
+
+    void HandleInput(std::stack<RobotState *> &, std::string) override;
+
+    ~LeftState() {
     }
 };
 
-class RightState : public RobotState
-{
+class RightState : public RobotState {
 public:
     RightState()
-        : RobotState("Right")
-    {
+            : RobotState("Right") {
     }
-    void HandleInput(std::stack<RobotState*>&, std::string) override;
-    ~RightState()
-    {
+
+    void HandleInput(std::stack<RobotState *> &, std::string) override;
+
+    ~RightState() {
     }
 };
 
-class MobileRobot
-{
+class MobileRobot {
 public:
     MobileRobot() = default;
+
     MobileRobot(std::string RobotName);
+
     ~MobileRobot() = default;
+
     std::string name;
-    virtual void PrintInfo();
-    std::stack<RobotState*> RobotStack_;
+    std::stack<RobotState *> RobotStack_;
+
     virtual void HandleInput(std::string input);
-    std::stack<RobotState*> get_stack()
-    {
-        return RobotStack_;
-    }
+
     void ShowStack();
 };
 
-class WheeledRobot : public MobileRobot
-{
+class WheeledRobot : public MobileRobot {
 public:
     WheeledRobot()
-        : MobileRobot("Wheeled Robot"){};
+            : MobileRobot("Wheeled Robot") {};
+
     ~WheeledRobot() = default;
-    void PrintInfo() override;
 };
 
-class TrackedRobot : public MobileRobot
-{
+class TrackedRobot : public MobileRobot {
 public:
     TrackedRobot()
-        : MobileRobot("Tracked Robot"){};
+            : MobileRobot("Tracked Robot") {};
+
     ~TrackedRobot() = default;
-    void PrintInfo() override;
 };
 
 #endif // MOBILEROBOT_FSM_H
