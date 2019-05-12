@@ -47,6 +47,8 @@ private:
     Maze tempMaze;
     Maze wheeledMaze;
     Maze trackedMaze;
+    MobileRobot *wheeledRobotInMaze = new WheeledRobot();
+    MobileRobot *trackedRobotInMaze = new TrackedRobot();
     char wheeled_target='p';
     char tracked_target='b';
 };

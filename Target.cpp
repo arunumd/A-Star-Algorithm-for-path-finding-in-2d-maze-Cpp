@@ -115,8 +115,15 @@ void Target::GoWheeled()
     }
     wheeledMaze.Action();
     wheeledMaze.PlotTrajectory('|');
-    //    wheeledMaze.ShowStartGoal();
+    wheeledMaze.ModifyMazePosition(wheeled.x, wheeled.y, 't');
+    if(wheeled_target == 'p') {
+        wheeledMaze.ModifyMazePosition(plate.x, plate.y, 'p');
+    } else {
+        wheeledMaze.ModifyMazePosition(bottle.x, bottle.y, 'b');
+    }
     wheeledMaze.ShowMaze();
+    wheeledMaze.BuildStack(wheeledRobotInMaze);
+    wheeledRobotInMaze->ShowStack();
 }
 
 void Target::GoTracked()
@@ -128,8 +135,15 @@ void Target::GoTracked()
     }
     trackedMaze.Action();
     trackedMaze.PlotTrajectory('-');
-    //    trackedMaze.ShowStartGoal();
+    trackedMaze.ModifyMazePosition(tracked.x, tracked.y, 't');
+    if(tracked_target == 'p') {
+        trackedMaze.ModifyMazePosition(plate.x, plate.y, 'p');
+    } else {
+        trackedMaze.ModifyMazePosition(bottle.x, bottle.y, 'b');
+    }
     trackedMaze.ShowMaze();
+    trackedMaze.BuildStack(trackedRobotInMaze);
+    trackedRobotInMaze->ShowStack();
 }
 
 void Target::PlotMaze()

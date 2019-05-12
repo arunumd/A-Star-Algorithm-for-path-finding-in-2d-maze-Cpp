@@ -9,6 +9,8 @@
 #include <utility>
 #include <array>
 #include <map>
+#include <stack>
+#include "./include/MobileRobot_FSM.h"
 
 
 
@@ -72,6 +74,10 @@ public:
     char GetMazePosition(int x, int y);
     void ModifyMazePosition(int x, int y, char c);
     void SetStartGoal(int start_x, int start_y, int goal_x, int goal_y);
+    void BuildWheeledStack(WheeledRobot* &robot_in_maze);
+    void BuildTrackedStack(TrackedRobot* &robot_in_maze);
+    void BuildStack(MobileRobot* &robot_in_maze);
+
     // Added methods end
 
 
@@ -107,7 +113,7 @@ public:
     void PlotTrajectory(char path_icon);
     
     std::array<std::string, 31> grid_;
-
+    
 private:
     
     std::pair<int, int> start_, goal_;
