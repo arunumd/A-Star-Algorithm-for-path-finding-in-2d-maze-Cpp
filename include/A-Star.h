@@ -12,31 +12,6 @@
 
 
 
-
-struct StartingWheeled {
-    int x;
-    int y;
-};
-struct StartingTracked {
-    int x;
-    int y;
-};
-struct TargetPlate {
-    int x;
-    int y;
-};
-struct TargetBottle {
-    int x;
-    int y;
-};
-
-
-
-
-
-
-
-
 struct ListInfo {
     int node_no = -10, parent_no = -10;
     double cost_g = 0;
@@ -89,8 +64,8 @@ public:
     
     // Added methods start
     bool CanMove(int x, int y);
-    const int width = 31;
-    const int length = 46;
+    int width = 31;
+    int length = 46;
     void ShowMaze();
     void ShowStartGoal();
     bool IsTarget(int x, int y, char target_char);
@@ -105,8 +80,6 @@ public:
 
     void Spawn(std::array<std::string, 31> board) const;
 
-    const std::pair<int, int> Scan() const;
-
     // Four functions to make four moves
 
     std::pair<int, int> North(std::pair<int, int> node) const;
@@ -118,10 +91,10 @@ public:
     std::pair<int, int> South(std::pair<int, int> node) const;
 
     const int TakeDecision1(const std::pair<int, int> &new_node, const double &cost_g, ListInfo &info,
-                            const std::pair<int, int> &parent_node, const int &parent_no, int &node_no);
+                            const std::pair<int, int> &parent_node);
 
     const int TakeDecision2(const std::pair<int, int> &new_node, const double &cost_g, ListInfo &info,
-                            const std::pair<int, int> &parent_node, const int &parent_no, int &node_no);
+                            const std::pair<int, int> &parent_node);
 
     int Action();
 
@@ -131,47 +104,17 @@ public:
 
     bool IsWithinRegion(std::pair<int, int> node) const;
 
-    void PlotTrajectory();
-
+    void PlotTrajectory(char path_icon);
+    
+    std::array<std::string, 31> grid_;
 
 private:
-    std::array<std::string, 31> grid_;
+    
     std::pair<int, int> start_, goal_;
-    std::map<double, ListInfo> priority_list_;
+    std::multimap<double, ListInfo> priority_list_;
     std::map<std::pair<int, int>, ListInfo> open_list_, closed_list_;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-class Target
-{
-public:
-    Target() = default;
-    ~Target() = default;
-    void SetPositions();
-    void AssignTasks();
-    void GoWheeled();
-    
-    
-    StartingWheeled wheeled;
-    StartingTracked tracked;
-    TargetPlate plate;
-    TargetBottle bottle;
-private:
-    Maze tempMaze;
-    char wheeled_target='p';
-    char tracked_target='b';
-};
 
 
 

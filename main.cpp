@@ -1,5 +1,6 @@
 #include <iostream>
 #include "./include/A-Star.h"
+#include "./include/Target.h"
 
 int main() {
 //    Maze game;
@@ -12,7 +13,7 @@ int main() {
     missions.SetPositions();
     missions.AssignTasks();
     missions.GoWheeled();
-    
-
+    missions.GoTracked();
+    missions.PlotMaze();
     return 0;
 }
