@@ -18,3 +18,8 @@ cd build
 cmake.. && make
 ./ENPM809Y-Final-Project
 ```
+After these please follow on-screen instructions
+
+# Results
+
+![Result from our algorithm](https://github.com/nuclearczy/ENPM809Y-Final-Project/blob/master/results/output.png)
