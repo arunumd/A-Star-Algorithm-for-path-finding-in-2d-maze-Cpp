@@ -173,7 +173,7 @@ const int Maze::TakeDecision2(const std::pair<int, int> &new_node,
 
 int Maze::Action() {
     // Initialize cost g, cost h, total cost, node no and parent no for root node
-    double cost_h = -100;
+    double cost_h;
     double cost_g = 0;
     std::pair<int, int> parent_node{start_};
     std::pair<int, int> current_node{start_};
@@ -210,7 +210,6 @@ int Maze::Action() {
         } else if (priority_list_.empty() && closed_list_.find(goal_) != closed_list_.end()) {
             return 1; // Goal node is found in closed list and priority list is empty
         } else {
-            auto low_cost = priority_list_.begin()->first; // Lowest cost f which is first node in priority list
             auto low_cost_info = priority_list_.begin()->second;
             priority_list_.erase(priority_list_.begin());
             auto low_cost_node = low_cost_info.node;
