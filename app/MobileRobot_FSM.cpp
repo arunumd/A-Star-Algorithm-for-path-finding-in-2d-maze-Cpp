@@ -1,7 +1,7 @@
-#include "../include/MobileRobot_FSM.h"
 #include <iostream>
 #include <stack>
 #include <string>
+#include "../include/MobileRobot_FSM.h"
 
 MobileRobot::MobileRobot(std::string RobotName) {
     name = std::move(RobotName);

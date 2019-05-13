@@ -10,6 +10,7 @@
 #include <array>
 #include <map>
 #include <stack>
+#include <memory>
 #include "../include/MobileRobot_FSM.h"
 
 struct ListInfo {
@@ -57,7 +58,6 @@ public:
 
     ~Maze() = default;
 
-    // Added methods start
     bool CanMove(int x, int y);
 
     int width = 31;
@@ -71,11 +71,7 @@ public:
 
     void SetStartGoal(int start_x, int start_y, int goal_x, int goal_y);
 
-    void BuildStack(MobileRobot *&robot_in_maze);
-
-    // Added methods end
-
-    // Four functions to make four moves
+    void BuildStack(const std::shared_ptr<MobileRobot> &robot_in_maze);
 
     std::pair<int, int> North(std::pair<int, int> node) const;
 

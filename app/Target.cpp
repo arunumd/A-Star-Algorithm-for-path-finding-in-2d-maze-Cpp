@@ -1,10 +1,11 @@
 // Classes Target and Maze Start
-#include "../include/A-Star.h"
-#include "../include/Target.h"
 #include <array>
 #include <cmath>
 #include <iostream>
 #include <utility>
+#include <memory>
+#include "../include/A-Star.h"
+#include "../include/Target.h"
 
 void Target::SetPositions() {
     int length = tempMaze.length;
