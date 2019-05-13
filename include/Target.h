@@ -53,7 +53,7 @@ private:
     char wheeled_target = 'p';
     char tracked_target = 'b';
     std::shared_ptr<MobileRobot> wheeledRobotInMaze = std::make_shared<WheeledRobot>();
-    std::shared_ptr<MobileRobot> trackedRobotInMaze = std::make_shared<WheeledRobot>();
+    std::shared_ptr<MobileRobot> trackedRobotInMaze = std::make_shared<TrackedRobot>();
 };
 
 #endif // ENPM809Y_PROJECT_5_TARGET_H
