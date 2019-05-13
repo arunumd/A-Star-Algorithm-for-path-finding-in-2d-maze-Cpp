@@ -148,7 +148,8 @@ public:
 
     /*
 	@brief build stack of moving sequence
-	@param robot_in_maze -
+	@param robot_in_maze - pointer of robot object, polymorphism takes place
+     * inside this function.
 	*/
     void BuildStack(const std::shared_ptr<MobileRobot> &robot_in_maze);
 

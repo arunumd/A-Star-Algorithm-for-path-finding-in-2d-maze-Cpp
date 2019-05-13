@@ -71,6 +71,12 @@ struct TargetBottle {
     int y = -1;
 };
 
+
+/*
+ * @brief The Target class handles the overall program. It will run the A-Star 
+ * searching algorithm twice to get path for each robot. It also handles the 
+ * input from user and stores the start and goal points.
+ */
 class Target {
 public:
     /*
@@ -131,12 +137,51 @@ public:
 	*/
     TargetBottle bottle;
 private:
+
+    /*
+	@brief  A maze object for the overall path, it will display 
+     * both paths for both robots.
+	 */
     Maze tempMaze;
+    
+    /*
+	@brief  A maze object for the wheeled robot, it will do the 
+     * searching algorithm for wheeled robot and its target, only
+     * the path for wheeled robot will be displayed. 
+	 */
     Maze wheeledMaze;
+    
+    /*
+	@brief  A maze object for the tracked robot, it will do the 
+     * searching algorithm for tracked robot and its target, only
+     * the path for tracked robot will be displayed. 
+	 */
     Maze trackedMaze;
+    
+    /*
+	@brief This stores the target for wheeled robot. It is initialized 
+     * as 'p' but will be modified in the SetPositions function.
+	 */
     char wheeled_target = 'p';
+    
+    /*
+	@brief This stores the target for tracked robot. It is initialized 
+     * as 'b' but will be modified in the SetPositions function.
+	 */
     char tracked_target = 'b';
+    
+    /*
+	@brief This creates a smart pointer for wheeled robot. It is used to 
+     * handle robot state inputs and realize the pushdown automata. It also 
+     * stores the path in its state stack.
+	 */
     std::shared_ptr<MobileRobot> wheeledRobotInMaze = std::make_shared<WheeledRobot>();
+    
+    /*
+	@brief This creates a smart pointer for tracked robot. It is used to 
+     * handle robot state inputs and realize the pushdown automata. It also 
+     * stores the path in its state stack.
+	 */
     std::shared_ptr<MobileRobot> trackedRobotInMaze = std::make_shared<TrackedRobot>();
 };
 
