@@ -114,7 +114,7 @@ void Target::GoWheeled() {
     }
     wheeledMaze.Action();
     wheeledMaze.PlotTrajectory('|');
-    wheeledMaze.ModifyMazePosition(wheeled.x, wheeled.y, 't');
+    wheeledMaze.ModifyMazePosition(wheeled.x, wheeled.y, 'w');
     if (wheeled_target == 'p') {
         wheeledMaze.ModifyMazePosition(plate.x, plate.y, 'p');
     } else {
