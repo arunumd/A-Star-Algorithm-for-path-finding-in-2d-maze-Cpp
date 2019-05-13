@@ -1,7 +1,7 @@
 #include <iostream>
+#include <stack>
 #include "../include/A-Star.h"
 #include "../include/Target.h"
-#include <stack>
 #include "../include/MobileRobot_FSM.h"
 
 int main() {

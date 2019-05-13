@@ -10,72 +10,57 @@ public:
     virtual void HandleInput(std::stack<RobotState *> &, std::string) {
     }
 
-    RobotState(std::string name = "RobotState")
-            : name_{name} {
-    }
+    explicit RobotState(std::string name = "RobotState"): name_{name} {}
 
     virtual ~RobotState() = default;
 
-    std::string get_name() {
-        return name_;
-    }
+    std::string get_name() {return name_;}
 
     std::string name_;
 };
 
 class UpState : public RobotState {
 public:
-    UpState()
-            : RobotState("Up") {
-    }
+    UpState(): RobotState("Up") {}
 
     void HandleInput(std::stack<RobotState *> &, std::string) override;
 
-    ~UpState() {
-    }
+    ~UpState() override = default;
 };
 
 class DownState : public RobotState {
 public:
-    DownState()
-            : RobotState("Down") {
-    }
+    DownState(): RobotState("Down") {}
 
     void HandleInput(std::stack<RobotState *> &, std::string) override;
 
-    ~DownState() {
-    }
+    ~DownState() override = default;
 };
 
 class LeftState : public RobotState {
 public:
-    LeftState()
-            : RobotState("Left") {
+    LeftState(): RobotState("Left") {
     }
 
     void HandleInput(std::stack<RobotState *> &, std::string) override;
 
-    ~LeftState() {
-    }
+    ~LeftState() override = default;
 };
 
 class RightState : public RobotState {
 public:
-    RightState()
-            : RobotState("Right") {
-    }
+    RightState(): RobotState("Right") {}
 
     void HandleInput(std::stack<RobotState *> &, std::string) override;
 
-    ~RightState() {
-    }
+    ~RightState() override = default;
 };
 
 class MobileRobot {
 public:
     MobileRobot() = default;
 
-    MobileRobot(std::string RobotName);
+    explicit MobileRobot(std::string RobotName);
 
     ~MobileRobot() = default;
 
@@ -89,16 +74,14 @@ public:
 
 class WheeledRobot : public MobileRobot {
 public:
-    WheeledRobot()
-            : MobileRobot("Wheeled Robot") {};
+    WheeledRobot(): MobileRobot("Wheeled Robot") {};
 
     ~WheeledRobot() = default;
 };
 
 class TrackedRobot : public MobileRobot {
 public:
-    TrackedRobot()
-            : MobileRobot("Tracked Robot") {};
+    TrackedRobot(): MobileRobot("Tracked Robot") {};
 
     ~TrackedRobot() = default;
 };

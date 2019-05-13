@@ -3,25 +3,27 @@
 
 #include <iostream>
 #include <utility>
+#include <memory>
 #include <array>
 #include <map>
 #include "A-Star.h"
+#include "MobileRobot_FSM.h"
 
 struct StartingWheeled {
-    int x;
-    int y;
+    int x = -1;
+    int y = -1;
 };
 struct StartingTracked {
-    int x;
-    int y;
+    int x = -1;
+    int y = -1;
 };
 struct TargetPlate {
-    int x;
-    int y;
+    int x = -1;
+    int y = -1;
 };
 struct TargetBottle {
-    int x;
-    int y;
+    int x = -1;
+    int y = -1;
 };
 
 class Target {
@@ -48,10 +50,10 @@ private:
     Maze tempMaze;
     Maze wheeledMaze;
     Maze trackedMaze;
-    MobileRobot *wheeledRobotInMaze = new WheeledRobot();
-    MobileRobot *trackedRobotInMaze = new TrackedRobot();
     char wheeled_target = 'p';
     char tracked_target = 'b';
+    std::shared_ptr<MobileRobot> wheeledRobotInMaze = std::make_shared<WheeledRobot>();
+    std::shared_ptr<MobileRobot> trackedRobotInMaze = std::make_shared<WheeledRobot>();
 };
 
 #endif // ENPM809Y_PROJECT_5_TARGET_H

@@ -1,13 +1,14 @@
 //
 // Created by arunk on 04/27/2019.
 //
-#include "../include/A-Star.h"
-#include "../include/MobileRobot_FSM.h"
 #include <array>
 #include <cmath>
 #include <iostream>
 #include <stack>
 #include <utility>
+#include <memory>
+#include "../include/A-Star.h"
+#include "../include/MobileRobot_FSM.h"
 
 void Maze::ModifyMazePosition(int x, int y, char c) {
     if (grid_[y][x] == '#') {
@@ -261,7 +262,7 @@ void Maze::PlotTrajectory(char path_icon) {
     }
 }
 
-void Maze::BuildStack(MobileRobot *&robot_in_maze) {
+void Maze::BuildStack(const std::shared_ptr<MobileRobot> &robot_in_maze) {
     int status = Action();
     if (status == 1) {
         std::pair<int, int> node = goal_;
