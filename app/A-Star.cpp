@@ -10,6 +10,14 @@
 #include "../include/A-Star.h"
 #include "../include/MobileRobot_FSM.h"
 
+int Maze::GetLength(){
+    return length;
+}
+
+int Maze::GetWidth(){
+    return width;
+}
+
 void Maze::ModifyMazePosition(int x, int y, char c) {
     if (grid_[y][x] == '#') {
         std::cout << "Modify maze failed, position blocked!" << std::endl;
@@ -285,6 +293,6 @@ void Maze::BuildStack(const std::shared_ptr<MobileRobot> &robot_in_maze) {
             }
         }
     } else {
-        std::cout << "No path for " << robot_in_maze->name << std::endl;
+        std::cout << "No path for " << robot_in_maze->GetName() << std::endl;
     }
 }

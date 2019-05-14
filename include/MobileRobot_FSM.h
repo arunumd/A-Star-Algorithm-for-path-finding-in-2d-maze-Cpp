@@ -70,6 +70,7 @@ public:
 	*/
     std::string get_name() {return name_;}
 
+private:
     /*
 	@brief Define the storage for name of RobotState
 	*/
@@ -191,15 +192,6 @@ public:
     
     /* @brief Default destructor.*/
     ~MobileRobot() = default;
-    
-    /* @brief Name member for the robot.*/
-    std::string name;
-    
-    /* @brief Stack to store robot states for the 
-     * pushdown automata.
-     */
-    std::stack<RobotState *> RobotStack_;
-
 
     /* @brief Virtual function to handle input.
      * @param input - input robot state.
@@ -208,6 +200,23 @@ public:
     
     /* @brief Function to print the stack.*/
     void ShowStack();
+    
+    /* 
+    @brief Function to get name.
+    @return name of the robot
+    */
+    std::string GetName();
+    
+    
+    
+private:
+    /* @brief Name member for the robot.*/
+    std::string name;
+       
+    /* @brief Stack to store robot states for the 
+     * pushdown automata.
+     */
+    std::stack<RobotState *> RobotStack_;
 };
 
 

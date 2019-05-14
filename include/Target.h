@@ -117,7 +117,9 @@ public:
 	*/
     void PlotMaze();
 
-    /*
+   
+private:
+     /*
 	@brief Creates object wheeled for StartingWheeled class
 	*/
     StartingWheeled wheeled;
@@ -135,8 +137,7 @@ public:
     /*
 	@brief Creates object bottle for TargetBottle class
 	*/
-    TargetBottle bottle;
-private:
+    TargetBottle bottle;    
 
     /*
 	@brief  A maze object for the overall path, it will display 

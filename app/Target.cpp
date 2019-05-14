@@ -8,8 +8,8 @@
 #include "../include/Target.h"
 
 void Target::SetPositions() {
-    int length = tempMaze.length;
-    int width = tempMaze.width;
+    int length = tempMaze.GetLength();
+    int width = tempMaze.GetWidth();
     tempMaze.ShowMaze();
     while (true) {
         std::cout << "Please enter starting point for wheeled robot: x y" << std::endl;
@@ -145,8 +145,8 @@ void Target::GoTracked() {
 }
 
 void Target::PlotMaze() {
-    for (int j = tempMaze.width - 1; j >= 0; j--) {
-        for (int i = 0; i < tempMaze.length; i++) {
+    for (int j = tempMaze.GetWidth() - 1; j >= 0; j--) {
+        for (int i = 0; i < tempMaze.GetLength(); i++) {
             if (wheeledMaze.GetMazePosition(i, j) == '|' and trackedMaze.GetMazePosition(i, j) == '-') {
                 tempMaze.ModifyMazePosition(i, j, '+');
             } else if (wheeledMaze.GetMazePosition(i, j) == '|') {
