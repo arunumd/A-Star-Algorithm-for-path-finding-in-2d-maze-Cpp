@@ -3,11 +3,11 @@
  * @author     Arun Kumar Devarajulu
  * @author     Zuyang Cao
  * @author     Qidi Xu
- * @author	   Hongyang Jiang
+ * @author     Hongyang Jiang
  * @date       04/27/2019
  * @brief      The file A-Star.h contains the header declarations for Maze
  *             class. The class will be used for implementation of A-Star
- *			   Algorithm in Final Project
+ *             Algorithm in Final Project
  * @license    MIT License
  *             Permission is hereby granted, free of charge, to any person obtaining a copy
  *             of this software and associated documentation files (the "Software"), to deal
@@ -107,16 +107,6 @@ public:
     bool CanMove(int x, int y);
 
     /*
-	@brief Pre-define width as 31 due to the fact the maze is given
-	*/
-    int width = 31;
-
-    /*
-	@brief Pre-define length as 46 due to the fact the maze is given
-	*/
-    int length = 46;
-
-    /*
 	@brief Visualized the Maze by print it out on console
 	*/
     void ShowMaze();
@@ -148,7 +138,8 @@ public:
 
     /*
 	@brief build stack of moving sequence
-	@param robot_in_maze -
+	@param robot_in_maze - pointer of robot object, polymorphism takes place
+     * inside this function.
 	*/
     void BuildStack(const std::shared_ptr<MobileRobot> &robot_in_maze);
 
@@ -245,10 +236,33 @@ public:
 	*/
     void PlotTrajectory(char path_icon);
 
+    /*
+	@brief Get the length of the maze.
+    @return length of the maze
+	*/
+    int GetLength();
+    
+    /*
+	@brief Get the width of the maze.
+    @return width of the maze
+	*/
+    int GetWidth();
+    
+
+private:
+    /*
+	@brief Pre-define width as 31 due to the fact the maze is given
+	*/
+    int width = 31;
+
+    /*
+	@brief Pre-define length as 46 due to the fact the maze is given
+	*/
+    int length = 46;
+
     /* @brief Our maze representation*/
     std::array<std::string, 31> grid_;
 
-private:
     /* @brief Our start and goal nodes*/
     std::pair<int, int> start_, goal_;
 

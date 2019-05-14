@@ -26,6 +26,10 @@ void MobileRobot::ShowStack() {
     printf("\n");
 }
 
+std::string MobileRobot::GetName(){
+    return name;
+}
+
 // UpState::UpState()
 
 void UpState::HandleInput(std::stack<RobotState *> &stack_, std::string input) {

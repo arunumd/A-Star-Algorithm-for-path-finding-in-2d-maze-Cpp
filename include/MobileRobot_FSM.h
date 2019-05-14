@@ -35,6 +35,11 @@
 #include <stack>
 #include <string>
 
+/*
+ * @brief The RobotState class is the base class for the later UpState, DownState,
+ * LeftState and RightState. It contains a virtual function for handling state input
+ * and a member to store the name of the state.
+ */
 class RobotState {
 public:
     /*
@@ -65,12 +70,20 @@ public:
 	*/
     std::string get_name() {return name_;}
 
+private:
     /*
 	@brief Define the storage for name of RobotState
 	*/
     std::string name_;
 };
 
+
+/*
+ * @brief The UpState class is part of the finite state machine. It has its own 
+ * HandleInput function realization. Although in this program, the HandleInput  
+ * function is always the same for each state, but for further implementation, 
+ * it can be modified here.
+ */
 class UpState : public RobotState {
 public:
     /*
@@ -88,6 +101,13 @@ public:
     ~UpState() override = default;
 };
 
+
+/*
+ * @brief The DownState class is part of the finite state machine. It has its own 
+ * HandleInput function realization. Although in this program, the HandleInput  
+ * function is always the same for each state, but for further implementation, 
+ * it can be modified here.
+ */
 class DownState : public RobotState {
 public:
     /*
@@ -105,6 +125,13 @@ public:
     ~DownState() override = default;
 };
 
+
+/*
+ * @brief The LeftState class is part of the finite state machine. It has its own 
+ * HandleInput function realization. Although in this program, the HandleInput  
+ * function is always the same for each state, but for further implementation, 
+ * it can be modified here.
+ */
 class LeftState : public RobotState {
 public:
     /*
@@ -122,6 +149,13 @@ public:
     ~LeftState() override = default;
 };
 
+
+/*
+ * @brief The RightState class is part of the finite state machine. It has its own 
+ * HandleInput function realization. Although in this program, the HandleInput  
+ * function is always the same for each state, but for further implementation, 
+ * it can be modified here.
+ */
 class RightState : public RobotState {
 public:
     /*
@@ -139,29 +173,61 @@ public:
     ~RightState() override = default;
 };
 
+
+/*
+ * @brief The MobileRobot class is the base class for WheeledRobot class and
+ * TrackedRobot.
+ */
 class MobileRobot {
 public:
     /*
 	@brief Default constructor
 	*/
     MobileRobot() = default;
-
+    
+    /* @brief Constructor with string input for the name member.
+     * @param RobotName - name of the robot.
+     */
     explicit MobileRobot(std::string RobotName);
-
+    
+    /* @brief Default destructor.*/
     ~MobileRobot() = default;
 
-    std::string name;
-    std::stack<RobotState *> RobotStack_;
-
+    /* @brief Virtual function to handle input.
+     * @param input - input robot state.
+     */
     virtual void HandleInput(std::string input);
-
+    
+    /* @brief Function to print the stack.*/
     void ShowStack();
+    
+    /* 
+    @brief Function to get name.
+    @return name of the robot
+    */
+    std::string GetName();
+    
+    
+    
+private:
+    /* @brief Name member for the robot.*/
+    std::string name;
+       
+    /* @brief Stack to store robot states for the 
+     * pushdown automata.
+     */
+    std::stack<RobotState *> RobotStack_;
 };
 
+
+/*
+ * @brief The WheeledRobot class handles state inputs and stores state stack 
+ * for the pushdown automata.
+ */
 class WheeledRobot : public MobileRobot {
 public:
     /*
-	@brief Default constructor
+	@brief Constructor to initialize the name as "Wheeled Robot".
 	*/
     WheeledRobot(): MobileRobot("Wheeled Robot") {};
 
@@ -169,10 +235,16 @@ public:
     ~WheeledRobot() = default;
 };
 
+
+
+/*
+ * @brief The WheeledRobot class handles state inputs and stores state stack 
+ * for the pushdown automata.
+ */
 class TrackedRobot : public MobileRobot {
 public:
     /*
-	@brief Default constructor
+	@brief Constructor to initialize the name as "Tracked Robot".
 	*/
     TrackedRobot(): MobileRobot("Tracked Robot") {};
 
@@ -180,4 +252,4 @@ public:
     ~TrackedRobot() = default;
 };
 
-#endif // MOBILEROBOT_FSM_H
+#endif // ENPM809Y_PROJECT_5_MOBILEROBOT_FSM_H
