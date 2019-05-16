@@ -33,6 +33,11 @@ After these please follow on-screen instructions
 
 ![UML Class Diagram for the Project](https://github.com/nuclearczy/ENPM809Y-Final-Project/blob/master/UML%20Diagrams/UML%20Class%20Diagrams/UML%20Class%20Diagram.jpg)
 
-# UML Activity Diagram
+# UML Activity Diagrams
 
-![UML Activity Diagram for the Project](https://github.com/nuclearczy/ENPM809Y-Final-Project/blob/master/UML%20Diagrams/UML%20Activity%20Diagrams/UML%20Activity%20Diagram.jpg)
+**Complete Project Pipeline**
+
+![UML Activity Diagram for the Project](https://github.com/nuclearczy/ENPM809Y-Final-Project/blob/master/UML%20Diagrams/UML%20Activity%20Diagrams/UML%20Activity%20Diagram%20-%20Full%20Project.jpg)
+
+**A - Star Algorithm Pipeline**
+![UML Activity Diagram for A - Star Algorithm](https://github.com/nuclearczy/ENPM809Y-Final-Project/blob/master/UML%20Diagrams/UML%20Activity%20Diagrams/UML%20Activity%20Diagram%20-%20A-Star%20Algorithm.jpg)
