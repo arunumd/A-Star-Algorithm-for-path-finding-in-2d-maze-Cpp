@@ -37,7 +37,7 @@ After these please follow on-screen instructions
 
 **Complete Project Pipeline**
 
-![UML Activity Diagram for the Project](UML Diagrams/UML Activity Diagrams/UML Activity Diagram - Full Project.jpg)
+![UML Activity Diagram for the Project](https://raw.githubusercontent.com/arunumd/A-Star-Algorithm-for-path-finding-in-2d-maze-Cpp/master/UML Diagrams/UML Activity Diagrams/UML Activity Diagram - Full Project.jpg)
 
 **A - Star Algorithm Pipeline**
-![UML Activity Diagram for A - Star Algorithm](UML Diagrams/UML Activity Diagrams/UML Activity Diagram - A-Star Algorithm.jpg)
+![UML Activity Diagram for A - Star Algorithm](https://raw.githubusercontent.com/arunumd/A-Star-Algorithm-for-path-finding-in-2d-maze-Cpp/master/UML Diagrams/UML Activity Diagrams/UML Activity Diagram - A-Star Algorithm.jpg)
