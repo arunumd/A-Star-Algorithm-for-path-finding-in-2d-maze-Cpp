@@ -15,12 +15,12 @@ This repository contains source code for ENPM809Y final project on search algori
 In order to run the project, do the following in a new terminal :
 
 ```
-git clone https://github.com/nuclearczy/ENPM809Y-Final-Project.git
-cd ENPM809Y-Final-Project
+git clone https://github.com/arunumd/A-Star-Algorithm-for-path-finding-in-2d-maze-Cpp.git
+cd A-Star-Algorithm-for-path-finding-in-2d-maze-Cpp
 mkdir build
 cd build
 cmake.. && make
-./ENPM809Y-Final-Project
+./Final_Version_809Y_Project
 ```
 
 After these please follow on-screen instructions
